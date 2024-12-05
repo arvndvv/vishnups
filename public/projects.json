@@ -1,0 +1,18 @@
+[
+    {
+      "title": "Portfolio Website",
+      "description": "A personal portfolio website built using Next.js and Tailwind CSS.",
+      "link": "https://myportfolio.com"
+    },
+    {
+      "title": "E-commerce Store",
+      "description": "A full-featured e-commerce platform with payment integration.",
+      "link": "https://ecommerce.com"
+    },
+    {
+      "title": "Real-time Chat App",
+      "description": "A chat application with WebSocket for real-time communication.",
+      "link": "https://chatapp.com"
+    }
+  ]
+  

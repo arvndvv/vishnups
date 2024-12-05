@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* Global styling for Markdown content */
+h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  @apply font-serif text-gray-300 dark:text-gray-700;
+}
+
+.markdown h1 {
+  @apply text-4xl font-semibold my-6;
+}
+
+.markdown h2 {
+  @apply text-3xl font-semibold my-4;
+}
+
+.markdown h3 {
+  @apply text-2xl font-semibold my-3;
+}
+
+.markdown p {
+  @apply text-lg text-gray-400 dark:text-gray-500 leading-relaxed mb-4;
+}
+
+.markdown ul,
+.markdown ol {
+  @apply list-inside list-disc pl-5;
+}
+
+.markdown li {
+  @apply mb-2 text-gray-400 dark:text-gray-500;
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-gray-400 pl-4 italic text-gray-600 dark:text-gray-700 mb-6;
+}
+.markdown strong{
+    @apply dark:text-gray-500 text-gray-400;
+}
+.markdown code {
+  @apply bg-gray-900 p-1 rounded-sm font-mono text-sm;
+}
+
+.markdown pre {
+  @apply bg-gray-900 text-white p-4 rounded-md overflow-auto;
+}
+
+.markdown a {
+  @apply text-cyan-700 hover:text-cyan-600 hover:no-underline;
+}
+a{
+    @apply hover:no-underline;
+}
+.markdown img {
+  @apply rounded-lg shadow-md mt-4;
+}
+
+.markdown hr {
+  @apply border-t border-gray-300 my-6;
+}
+
+  
+
+  .desc *{
+    display: inline;
+  }
+  footer {
+    border-top: 1px solid #4b5563; /* Subtle border for the footer */
+  }
+  body {
+    @apply bg-gray-800 text-gray-100 dark:bg-gray-100 dark:text-gray-800;
+  }
+  
