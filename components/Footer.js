@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="flex items-center gap-4">
           <p className="text-sm">&copy; 2024 Your Name</p>
           <button
-            className="flex items-center gap-1 text-gray-400 dark:text-gray-800 hover:text-emerald-600 dark:hover:text-emerald-600"
+            className="flex items-center gap-1 text-gray-400 dark:text-gray-800 hover:text-slate-300 dark:hover:text-slate-600"
             onClick={toggleTheme}
           >
             {theme === 'dark' ? <FaSun size={18} /> : <FaMoon size={18} />}
@@ -40,14 +40,14 @@ export default function Footer() {
 
         {/* Right Section */}
         <div className="flex items-center gap-6">
-          <a href="mailto:your.email@example.com" className="hover:text-emerald-600">
+          <a href="mailto:your.email@example.com" className="hover:text-slate-300 dark:hover:text-slate-600">
             <FaEnvelope size={18} />
           </a>
           <a
             href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-emerald-600"
+            className="hover:text-slate-300 dark:hover:text-slate-600"
           >
             <FaGithub size={18} />
           </a>
@@ -55,7 +55,7 @@ export default function Footer() {
             href="https://linkedin.com/in/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-emerald-600"
+            className="hover:text-slate-300 dark:hover:text-slate-600"
           >
             <FaLinkedin size={18} />
           </a>

@@ -16,7 +16,7 @@ export default async function LandingPage() {
 
   return (
     <Layout>
-       <div className="max-w-4xl w-full px-8 py-12 text-center flex items-start gap-4">
+       <div className="max-w-4xl m-auto w-full px-8 py-12 text-center flex items-start gap-4">
           {/* Left Side */}
           <div className="w-1/3 flex flex-col items-center">
             <img
