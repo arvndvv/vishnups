@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://vishnups.com
+
+# Sitemaps
+Sitemap: https://vishnups.com/sitemap.xml
