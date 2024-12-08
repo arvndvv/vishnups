@@ -26,7 +26,7 @@ export default async function ProjectsPage() {
               <Link
                 href={project.link}
                 target="_blank"
-                className="text-cyan-700 hover:text-cyan-600 mt-4 inline-block"
+                className="text-blue-500 hover:text-blue-400 mt-4 inline-block"
               >
                 Visit Project →
               </Link>

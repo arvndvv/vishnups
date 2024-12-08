@@ -55,7 +55,7 @@ h1,
 }
 
 .markdown a {
-  @apply text-cyan-700 hover:text-cyan-600 hover:no-underline;
+  @apply text-blue-500 hover:text-blue-400 hover:no-underline;
 }
 a{
     @apply hover:no-underline;

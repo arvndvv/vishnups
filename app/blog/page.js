@@ -35,7 +35,7 @@ export default async function BlogPage({ searchParams }) {
               </div>
               <Link
                 href={`/blog/${post.slug}`}
-                className="text-cyan-700 hover:text-cyan-600 mt-4 inline-block"
+                className="text-blue-500 hover:text-blue-400 mt-4 inline-block"
               >
                 Read More →
               </Link>
@@ -49,7 +49,7 @@ export default async function BlogPage({ searchParams }) {
             {page > 1 && (
               <Link
                 href={`/blog?page=${page - 1}`}
-                className="text-cyan-700 hover:text-cyan-600"
+                className="text-blue-500 hover:text-blue-400"
               >
                 Previous
               </Link>
@@ -62,7 +62,7 @@ export default async function BlogPage({ searchParams }) {
             {page < totalPages && (
               <Link
                 href={`/blog?page=${page + 1}`}
-                className="text-cyan-700 hover:text-cyan-600"
+                className="text-blue-500 hover:text-blue-400"
               >
                 Next
               </Link>
