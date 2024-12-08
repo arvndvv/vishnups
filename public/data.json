@@ -1,5 +1,5 @@
 {
-    "image": "/img/name.png",
+    "image": "./img/name.png",
     "name":"Vishnu P S",
     "tags":["📍 Nuremberg, 🇩🇪 Germany","🧑🏻‍💻 Technical Lead & LLMs","🤗 Hugging Face","🦸🏻‍♂️ AWS ML Hero"]
   }

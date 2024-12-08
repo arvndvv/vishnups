@@ -1,4 +1,4 @@
-import '@/styles/globals.css';
+import '@/styles/globals.css?v=1';  // Force a refresh of styles with the version query
 
 export default function RootLayout({ children }) {
   return (

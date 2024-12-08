@@ -3,19 +3,34 @@ import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
 import { formatDate } from '@/lib/utils';
 import ReactMarkdown from 'react-markdown';
+
 // Generate metadata for the page
 export async function generateMetadata() {
-    return {
-      title: 'Blogs', // Set the page title to "Blogs"
-      description: 'Explore our latest blog posts and stay updated with insights, tips, and stories.', // Optional description
-    };
-  }
-export default async function BlogPage({ searchParams }) {
-  // Ensure searchParams is awaited (in case it's dynamic)
-  const params = await Promise.resolve(searchParams || {}); // Force async handling
-  const page = parseInt(params.page || '1', 10);
-  const postsPerPage = 10;
+  return {
+    title: 'Blogs',
+    description: 'Explore our latest blog posts and stay updated with insights, tips, and stories.',
+  };
+}
 
+// Generate static params for pagination
+export async function generateStaticParams() {
+  const { totalPosts } = getAllPosts(1, 10); // Get the total number of posts
+  const postsPerPage = 10;
+  const totalPages = Math.ceil(totalPosts / postsPerPage);
+
+  // Generate paths for each page
+  const paths = [];
+  for (let i = 1; i <= totalPages; i++) {
+    paths.push({ page: i.toString() });
+  }
+
+  return paths;
+}
+
+// Blog Page component (with async data fetching inside)
+export default async function BlogPage({ params }) {
+  const page = parseInt(params.page || '1', 10); // Parse the page number from params
+  const postsPerPage = 10;
   const { posts, totalPosts } = getAllPosts(page, postsPerPage);
   const totalPages = Math.ceil(totalPosts / postsPerPage);
 
