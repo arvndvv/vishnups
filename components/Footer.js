@@ -26,7 +26,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-8">
         {/* Left Section */}
         <div className="flex items-center gap-4">
-          <p className="text-sm">&copy; 2024 Your Name</p>
+          <p className="text-sm">&copy; 2024 </p>
           <button
             className="flex items-center gap-1 text-gray-400 dark:text-gray-800 hover:text-slate-300 dark:hover:text-slate-600"
             onClick={toggleTheme}
@@ -37,7 +37,6 @@ export default function Footer() {
             </span>
           </button>
         </div>
-
         {/* Right Section */}
         <div className="flex items-center gap-6">
           <a href="mailto:your.email@example.com" className="hover:text-slate-300 dark:hover:text-slate-600">

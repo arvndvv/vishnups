@@ -30,10 +30,10 @@ export default function Navbar({blogData}) {
 
   return (
     <header className="bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-700  py-4">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-8">
+      <div className="max-w-7xl mx-auto flex  gap-5 flex-col sm:flex-row justify-between items-center px-8">
         <Link href="/" className='text-xl font-bold'>Vishnu P S</Link>
         {/* Search Bar */}
-        <div className='flex items-center gap-5'>
+        <div className='flex flex-col-reverse sm:flex-row items-center gap-5'>
             <div className="relative">
             <input
                 type="text"

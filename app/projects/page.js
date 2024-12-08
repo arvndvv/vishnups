@@ -3,7 +3,13 @@ import Link from 'next/link';
 import projects from '@/public/projects.json'; // Import the JSON file
 
 
-
+// Generate metadata for the page
+export async function generateMetadata() {
+    return {
+      title: 'Projects', // Set the page title to "Blogs"
+      description: `Explore my projects such as: ${projects.map(p=>p.title).join(', ')}`, // Optional description
+    };
+  }
 export default async function ProjectsPage() {
 
   return (

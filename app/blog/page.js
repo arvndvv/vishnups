@@ -3,7 +3,13 @@ import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
 import { formatDate } from '@/lib/utils';
 import ReactMarkdown from 'react-markdown';
-
+// Generate metadata for the page
+export async function generateMetadata() {
+    return {
+      title: 'Blogs', // Set the page title to "Blogs"
+      description: 'Explore our latest blog posts and stay updated with insights, tips, and stories.', // Optional description
+    };
+  }
 export default async function BlogPage({ searchParams }) {
   // Ensure searchParams is awaited (in case it's dynamic)
   const params = await Promise.resolve(searchParams || {}); // Force async handling
