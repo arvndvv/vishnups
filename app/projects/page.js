@@ -14,7 +14,7 @@ export default async function ProjectsPage() {
 
   return (
     <Layout>
-      <div className="min-h-screen max-w-4xl m-auto py-12 px-6">
+      <div className=" max-w-4xl m-auto py-12 px-6">
         <h1 className="text-4xl font-bold text-center text-gray-300 dark:text-gray-700 mb-12">
           Projects
         </h1>

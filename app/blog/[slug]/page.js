@@ -7,7 +7,7 @@ import Layout from '@/components/Layout';
 export async function generateMetadata({ params }) {
     const post = await getPostBySlug(params.slug);
   
-    const title = post?.title || 'Default Title';
+    const title = 'Blog | '+(post?.title || 'Default Title');
     const description = post?.content.slice(0, 150) || 'Default Description';
     const image = post?.image || '/default-image.jpg'; // Replace with a default image path if necessary
   
