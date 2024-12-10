@@ -47,11 +47,11 @@ h1,
     @apply dark:text-gray-500 text-gray-400;
 }
 .markdown code {
-  @apply bg-gray-900 p-1 rounded-sm font-mono text-sm;
+  /* @apply  p-1 rounded-sm font-mono text-sm; */
 }
 
 .markdown pre {
-  @apply bg-gray-900 text-white p-4 rounded-md overflow-auto;
+  /* @apply bg-pre_bg text-white p-4 rounded-md overflow-auto; */
 }
 
 .markdown a {
@@ -77,6 +77,5 @@ a{
     border-top: 1px solid #4b5563; /* Subtle border for the footer */
   }
   body {
-    @apply bg-gray-800 text-gray-100 dark:bg-gray-100 dark:text-gray-800;
+    @apply bg-bg text-gray-100 dark:bg-gray-100 dark:text-gray-800;
   }
-  

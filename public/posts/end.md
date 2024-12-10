@@ -1,5 +1,5 @@
 ---
-title: "This is heading yo"
+title: "machine learning and computer vision"
 date: "2024-12-05"
 ---
 

@@ -1,7 +1,9 @@
 import { getPostBySlug } from '@/lib/posts';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm'; 
-import rehypeRaw from 'rehype-raw'; 
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'; // Theme for syntax highlighting
 import Layout from '@/components/Layout';
 import { getAllPosts } from '@/lib/posts'; // Adjust the import path as necessary
 
@@ -50,13 +52,32 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <Layout>
-      <div className="py-12 px-6 bg-gray-800 dark:bg-gray-100">
+      <div className="py-12 px-6 bg-bg dark:bg-gray-100">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-semibold text-gray-300 mb-12">{post.title}</h1>
           <div className="prose max-w-none markdown">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]} // Enable GitHub-flavored markdown
               rehypePlugins={[rehypeRaw]} // Allow raw HTML content
+              components={{
+                code({ node, inline, className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || '');
+                  return !inline && match ? (
+                    <SyntaxHighlighter
+                      style={oneDark} // Set your preferred theme
+                      language={match[1]}
+                      PreTag="div"
+                      {...props}
+                    >
+                      {String(children).replace(/\n$/, '')}
+                    </SyntaxHighlighter>
+                  ) : (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  );
+                },
+              }}
             >
               {post.content}
             </ReactMarkdown>

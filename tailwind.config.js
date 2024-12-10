@@ -7,7 +7,12 @@ module.exports = {
     './styles/**/*.css',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        bg:'#171D24',
+        pre_bg:"rgb(45 51 63)"
+      }
+    },
   },
   plugins: [],
 };

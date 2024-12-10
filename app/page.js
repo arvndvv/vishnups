@@ -1,42 +1,34 @@
-import ReactMarkdown from 'react-markdown'; // For rendering markdown
+import ReactMarkdown from 'react-markdown';
 import fs from 'fs';
 import path from 'path';
 import Layout from '@/components/Layout';
-import rehypeRaw from 'rehype-raw'; // For allowing raw HTML rendering in markdown
-import remarkGfm from 'remark-gfm'; // For GitHub-flavored markdown (e.g., tables, task lists)
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Choose a style
 
-// Generate metadata for the page
 export async function generateMetadata() {
-  // Fetch profile data from the public directory (JSON file)
   const profileFilePath = path.join(process.cwd(), 'public', 'data.json');
   const profileData = JSON.parse(fs.readFileSync(profileFilePath, 'utf-8'));
-
-  // Fetch markdown content from the public directory
   const markdownFilePath = path.join(process.cwd(), 'public', 'content.md');
   const markdownContent = fs.readFileSync(markdownFilePath, 'utf-8');
-
-  // Extract the first 160 characters from markdown as the description
-  const description = markdownContent.substring(0, 160).replace(/\n/g, ' '); // Remove newlines for cleaner meta description
+  const description = markdownContent.substring(0, 160).replace(/\n/g, ' ');
 
   return {
-    title: profileData.name, // Use username from JSON file
-    description, // Use extracted description from markdown
+    title: profileData.name,
+    description,
   };
 }
 
 export default async function LandingPage() {
-  // Fetch profile data from the public directory (JSON file)
   const profileFilePath = path.join(process.cwd(), 'public', 'data.json');
   const profileData = JSON.parse(fs.readFileSync(profileFilePath, 'utf-8'));
-
-  // Fetch markdown content from the public directory
   const markdownFilePath = path.join(process.cwd(), 'public', 'content.md');
   const markdownContent = fs.readFileSync(markdownFilePath, 'utf-8');
 
   return (
     <Layout>
-      <div className="max-w-4xl m-auto w-full px-8 py-12 text-center flex flex-col sm:flex-row items-start gap-4">
-        {/* Left Side */}
+      <div className="max-w-7xl m-auto w-full px-8 py-12 text-center flex flex-col sm:flex-row items-start gap-4">
         <div className="w-full sm:w-1/3 flex flex-col items-center">
           <img
             src={profileData.image}
@@ -53,12 +45,29 @@ export default async function LandingPage() {
           ))}
         </div>
 
-        {/* Right Side */}
         <div className="w-full sm:w-2/3 text-left px-6">
           <ReactMarkdown
             className="markdown"
-            remarkPlugins={[remarkGfm]} // Adds GitHub-flavored markdown features like tables, task lists, etc.
-            rehypePlugins={[rehypeRaw]} // Allows raw HTML rendering if needed
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
+            components={{
+              code({ inline, className, children, ...props }) {
+                const match = /language-(\w+)/.exec(className || '');
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    style={oneDark} // Choose your desired style
+                    language={match[1]}
+                    PreTag="div"
+                  >
+                    {String(children).replace(/\n$/, '')}
+                  </SyntaxHighlighter>
+                ) : (
+                  <code className={className} {...props}>
+                    {children}
+                  </code>
+                );
+              },
+            }}
           >
             {markdownContent}
           </ReactMarkdown>
