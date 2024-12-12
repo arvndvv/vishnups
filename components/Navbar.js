@@ -25,9 +25,11 @@ export default function Navbar({ blogData }) {
       setFilteredBlogs(blogData.posts); // Show all blogs if the query is empty
     } else {
       const results = fuse.search(query);
-      setFilteredBlogs(results.map((result) => result.item));
+      const limitedResults = results.slice(0, 10); // Limit to 10 results
+      setFilteredBlogs(limitedResults.map((result) => result.item));
     }
   };
+  
 
   const isActive = (path) => pathname === path;
 
@@ -49,7 +51,7 @@ export default function Navbar({ blogData }) {
             onClick={openDialog}
             className="py-1 px-4 rounded-md bg-gray-700 dark:bg-gray-50 dark:text-gray-700 dark:border-gray-200 dark:border-2 text-white"
           >
-            Search Blog
+            Search Blog <span>🔍</span>
           </button>
           <nav className="flex space-x-5">
             <Link
@@ -109,7 +111,7 @@ export default function Navbar({ blogData }) {
 </button>
 
       <h2 className="text-lg font-semibold mb-4 text-white dark:text-gray-700">
-        Search Blogs
+        Search Blogs 
       </h2>
       <input
         type="text"
@@ -118,7 +120,7 @@ export default function Navbar({ blogData }) {
         onChange={handleSearch}
         className="w-full py-2 px-4 mb-4 rounded-md border border-gray-600 bg-gray-800 text-white dark:bg-gray-50 dark:text-gray-700 dark:border-gray-300"
       />
-      <div className="max-h-60 overflow-y-auto">
+      <div className="overflow-y-auto">
         {filteredBlogs.length > 0 ? (
           filteredBlogs.map((blog) => (
             <Link key={blog.slug} href={`/blog/${blog.slug}`} onClick={closeDialog}>
