@@ -22,7 +22,8 @@ export default function Navbar({ blogData }) {
     const query = e.target.value;
     setSearchQuery(query);
     if (query.trim() === '') {
-      setFilteredBlogs(blogData.posts); // Show all blogs if the query is empty
+      const limitedResults = blogData.posts.slice(0, 10); // Limit to 10 results
+      setFilteredBlogs(limitedResults);
     } else {
       const results = fuse.search(query);
       const limitedResults = results.slice(0, 10); // Limit to 10 results
