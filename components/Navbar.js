@@ -112,7 +112,8 @@ export default function Navbar({ blogData }) {
 </button>
 
       <h2 className="text-lg font-semibold mb-4 text-white dark:text-gray-700">
-        Search Blogs 
+        Search Blogs ({blogData.totalPosts})
+        {/* Search Blogs ({filteredBlogs.length} / {blogData.totalPosts}) */}
       </h2>
       <input
         type="text"
